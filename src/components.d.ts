@@ -23,6 +23,7 @@ export namespace Components {
     */
     'middle': string;
   }
+  interface MyStockPrice {}
 }
 
 declare global {
@@ -33,8 +34,15 @@ declare global {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
+
+  interface HTMLMyStockPriceElement extends Components.MyStockPrice, HTMLStencilElement {}
+  var HTMLMyStockPriceElement: {
+    prototype: HTMLMyStockPriceElement;
+    new (): HTMLMyStockPriceElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'my-stock-price': HTMLMyStockPriceElement;
   }
 }
 
@@ -53,9 +61,11 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
+  interface MyStockPrice extends JSXBase.HTMLAttributes<HTMLMyStockPriceElement> {}
 
   interface IntrinsicElements {
     'my-component': MyComponent;
+    'my-stock-price': MyStockPrice;
   }
 }
 
