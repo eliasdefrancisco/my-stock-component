@@ -1,4 +1,5 @@
 import { Component, h, State } from "@stencil/core";
+import { AV_API_KEY } from "../../global/global"
 
 @Component({
     tag: 'my-stock-price',
@@ -8,11 +9,11 @@ import { Component, h, State } from "@stencil/core";
 export class StockPrice {
     @State() fetchedPrice: number
 
-    apikey = 'Q6V3K6756DWWTM11' // Temporary api key from Alpha Vantage
+    
 
     onFetchStockPrice(event: Event) {
         event.preventDefault()
-        fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo')
+        fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=${AV_API_KEY}`)
         .then(res => {
             return res.json()
         })
