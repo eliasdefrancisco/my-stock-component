@@ -23,7 +23,9 @@ export namespace Components {
     */
     'middle': string;
   }
-  interface MyStockPrice {}
+  interface MyStockPrice {
+    'stockSymbol': string;
+  }
 }
 
 declare global {
@@ -61,7 +63,9 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
-  interface MyStockPrice extends JSXBase.HTMLAttributes<HTMLMyStockPriceElement> {}
+  interface MyStockPrice extends JSXBase.HTMLAttributes<HTMLMyStockPriceElement> {
+    'stockSymbol'?: string;
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
