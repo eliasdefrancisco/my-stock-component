@@ -8,6 +8,7 @@ import { AV_API_KEY } from "../../global/global"
 })
 export class StockPrice {
     stockInput: HTMLInputElement
+    initialStockSymbol: string
 
     // @Element() el: HTMLElement
 
@@ -42,6 +43,9 @@ export class StockPrice {
     componentDidLoad() {
         console.log('componentDidLoad')
         if (this.stockSymbol) {
+            this.initialStockSymbol = this.stockSymbol
+            this.stockUserInput = this.stockSymbol
+            this.stockInputValid = true
             this.fetchStockPrice(this.stockSymbol)
         }
     }
@@ -52,6 +56,10 @@ export class StockPrice {
 
     componentDidUpdate() {
         console.log('componentDidUpdate')
+        this.initialStockSymbol = this.stockSymbol
+        if (this.initialStockSymbol !== this.stockSymbol) {
+            this.fetchStockPrice(this.stockSymbol)
+        }
     }
 
     componentDidUnload() {
