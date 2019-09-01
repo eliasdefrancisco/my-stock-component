@@ -33,11 +33,29 @@ export class StockPrice {
         const stockSymbol = this.stockInput.value
         this.fetchStockPrice(stockSymbol)
     }
+    
+    componentWillLoad() {
+        console.log('componentWillLoad')
+        console.log(this.stockSymbol)
+    }
 
     componentDidLoad() {
+        console.log('componentDidLoad')
         if (this.stockSymbol) {
             this.fetchStockPrice(this.stockSymbol)
         }
+    }
+
+    componentWillUpdate() {
+        console.log('componentWillUpdate')
+    }
+
+    componentDidUpdate() {
+        console.log('componentDidUpdate')
+    }
+
+    componentDidUnload() {
+        console.log('componentDidUnload')
     }
 
     fetchStockPrice(stockSymbol: string) {
