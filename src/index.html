@@ -17,5 +17,12 @@
 
   <my-stock-finder></my-stock-finder>
 
+  <script>
+    const stockFinderEl = document.querySelector('my-stock-finder');
+    stockFinderEl.addEventListener('mySymbolSelected', event => {
+      console.log('Listening event from index.html: ', event)
+    })
+  </script>
+
 </body>
 </html>

@@ -71,7 +71,9 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
-  interface MyStockFinder extends JSXBase.HTMLAttributes<HTMLMyStockFinderElement> {}
+  interface MyStockFinder extends JSXBase.HTMLAttributes<HTMLMyStockFinderElement> {
+    'onMySymbolSelected'?: (event: CustomEvent<string>) => void;
+  }
   interface MyStockPrice extends JSXBase.HTMLAttributes<HTMLMyStockPriceElement> {
     'stockSymbol'?: string;
   }
