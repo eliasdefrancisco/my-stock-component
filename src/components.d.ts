@@ -23,6 +23,7 @@ export namespace Components {
     */
     'middle': string;
   }
+  interface MySpinner {}
   interface MyStockFinder {}
   interface MyStockPrice {
     'stockSymbol': string;
@@ -38,6 +39,12 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
+  interface HTMLMySpinnerElement extends Components.MySpinner, HTMLStencilElement {}
+  var HTMLMySpinnerElement: {
+    prototype: HTMLMySpinnerElement;
+    new (): HTMLMySpinnerElement;
+  };
+
   interface HTMLMyStockFinderElement extends Components.MyStockFinder, HTMLStencilElement {}
   var HTMLMyStockFinderElement: {
     prototype: HTMLMyStockFinderElement;
@@ -51,6 +58,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'my-spinner': HTMLMySpinnerElement;
     'my-stock-finder': HTMLMyStockFinderElement;
     'my-stock-price': HTMLMyStockPriceElement;
   }
@@ -71,6 +79,7 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
+  interface MySpinner extends JSXBase.HTMLAttributes<HTMLMySpinnerElement> {}
   interface MyStockFinder extends JSXBase.HTMLAttributes<HTMLMyStockFinderElement> {
     'onMySymbolSelected'?: (event: CustomEvent<string>) => void;
   }
@@ -80,6 +89,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'my-component': MyComponent;
+    'my-spinner': MySpinner;
     'my-stock-finder': MyStockFinder;
     'my-stock-price': MyStockPrice;
   }
