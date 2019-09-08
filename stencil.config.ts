@@ -1,5 +1,7 @@
 import { Config } from '@stencil/core';
 
+// Documentation about this file here: https://stenciljs.com/docs/config
+
 export const config: Config = {
   namespace: 'my-stock-component',
   outputTargets: [
@@ -10,9 +12,9 @@ export const config: Config = {
     {
       type: 'docs-readme'
     },
-    {
-      type: 'www',
-      serviceWorker: null // disable service workers
-    }
+    // {
+    //   type: 'www',
+    //   serviceWorker: null // disable service workers
+    // }
   ]
 };
